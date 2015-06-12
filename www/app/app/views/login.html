@@ -1,0 +1,64 @@
+﻿
+
+<form role="form" >
+
+   <style type="text/css">
+   .form-control:focus {
+        border: 1px dotted silver!important; /* Параметры рамки */
+        border-bottom: 1px solid #00a65a!important;
+   }
+   
+  
+   .btn-primary:hover 
+   {
+       border: 1px solid dashed!important;
+  
+       }
+ 
+  </style>
+
+  <div class="login-box">
+      <div class="login-logo">
+        <a href="../index.html"><b>MyMoney</b>&nbsp;2.0</a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+        <p class="login-box-msg">Ваша личная бухгалтерия</p>
+
+          <div class="form-group has-feedback">
+            <input type="email" class="form-control" placeholder="Пользователь" data-ng-model="loginData.userName" required autofocus/>
+            <span class="glyphicon glyphicon-user form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control" placeholder="Пароль" data-ng-model="loginData.password" required/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+     
+            <div class="col-xs-12">
+              <button type="submit" style="background:#00a65a;border-color:#00a65a" class="btn btn-primary btn-block btn-flat" data-ng-click="login()">Войти</button>
+           
+            </div><!-- /.col -->
+            <div>&nbsp;</div>
+          </div>
+          
+           <div data-ng-hide="message == ''" class="alert alert-danger">
+                {{message}}
+            </div>
+
+        <div class="social-auth-links text-center" style="display:none;">
+   
+          <a style="cursor:pointer" class="btn btn-block btn-social btn-facebook btn-flat" data-ng-click="authExternalProvider('Facebook')"><i class="fa fa-facebook"></i> Sign in using Facebook</a>
+          <a style="cursor:pointer" class="btn btn-block btn-social btn-google-plus btn-flat" data-ng-click="authExternalProvider('Google')"><i class="fa fa-google-plus"></i> Sign in using Google+</a>
+        </div><!-- /.social-auth-links -->
+   
+
+      </div><!-- /.login-box-body -->
+    </div>
+
+
+
+
+
+
+</form>
+

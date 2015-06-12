@@ -1,0 +1,84 @@
+﻿<div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'callout callout-success' : 'callout callout-warning'">
+    <i class="icon fa fa-check" data-ng-show="(savedSuccessfully)"></i>
+    <i class="icon fa fa-warning" data-ng-show="(!savedSuccessfully)"></i>
+    {{message}}
+</div>
+
+    <script type="text/ng-template" id="deletecategory.html">
+        <div class="modal-header">
+            <h4 class="modal-title">Удаление категории!</h4>
+        </div>
+        <div class="modal-body">
+            <p>Вы уверены что хотите удалить категорию: <b>{{ title }}</b>?</p>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-default pull-left" type="button" ng-click="cancel()">Закрыть</button>
+            <button class="btn btn-success" ng-click="ok()">Удалить</button>
+        </div>
+    </script>
+
+    <div class="row" data-ng-show="authentication.isAuth">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header"></div>
+                <div class="box-body no-padding">
+                    <table class="table table-hover no-border">
+                        <thead></thead>
+                        <tbody>
+
+                            <tr data-ng-repeat="category in categories">
+                                <td>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <span data-ng-show="category.transactionTypeId =='35F5A676-539A-46B2-9779-D932FA2B234F'"><i class="fa  fa-plus-circle"></i></span>
+                                    <span data-ng-show="category.transactionTypeId =='6B97275F-CCA8-4270-8CCB-CD294AAE7FDB'"><i class="fa fa-shopping-cart"></i></span>
+                                </td>
+                                <td>
+                                    <strong>{{ category.title }}</strong>
+                                    <!--  <br/><small style="color:silver">{{ category.description }}</small>-->
+                                    <br /><small style="color:silver">Добалвено: {{ category.date | date: 'dd.MM.yyyy HH:mm' }}</small>
+                                </td>
+
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-default btn-flat dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+                                            ...
+                                        </button>
+                                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                                            <li><a href="#/categories/update/{{ category.id }}"><i class="fa fa-edit"></i> Править</a></li>
+                                            <li><a ng-click="deleteCategory(category.id,category.title)"><i class="fa fa-remove"></i> Удалить</a></li>
+                                        </ul>
+                                    </div>
+
+                                </td>
+
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr><td colspan="5"><h3>&nbsp;</h3></td></tr>
+                        </tfoot>
+                    </table>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+
+            <div class="container">
+                <div class="row">
+                    <div id="inbox">
+                        <div class="fab btn-group show-on-hover dropup">
+                            <div data-toggle="tooltip" data-placement="left" title="Создать новую категорию" style="margin-left: 120px;">
+                                <a href="#/categories/insert" class="btn btn-success btn-io">
+                                    <span class="fa-stack fa-2x">
+                                        <i class="fa fa-circle fa-stack-2x fab-backdrop"></i>
+                                        <i class="fa fa-plus fa-stack-1x fa-inverse fab-primary"></i>
+                                        <i class="fa fa-pencil fa-stack-1x fa-inverse fab-secondary"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
